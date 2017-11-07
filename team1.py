@@ -26,42 +26,60 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    
-    
-    
-    
-    
-    
-    
     if len(their_history) == 0:
-        return 'b'
-    #tit-for-tat
-    if len(my_history) < 25:
-        return tit_for_tat(my_history, their_history, my_score, their_score)
-
-    if len(my_history) >=25: #and len(my_history)<=50:
-        if my_score >= -1000:
-            return tit_for_tat(my_history, their_history, my_score, their_score)
-        if my_score < -1000:
-            return new_strat(my_history, their_history, my_score, their_score)
+        return 'c'
+        
+    if len(their_history) == 1:
+        return 'c'
+        
+    if their_history[-2] == 'c':
+        if their_history[-1] == 'c':
+            return 'b'
             
-    #if my_score < -5000:
-        #while True==True:
-            #print 'Self Destruct!'
-
-def tit_for_tat(my_history, their_history, my_score, their_score):
-    if their_history[-1] == 'c':
-        return 'c'
-    if their_history[-1] == 'b':
-        return 'b'
- 
-def new_strat(my_history, their_history, my_score, their_score):
-    if their_history[-1] == 'b':
-        return 'b'
-    if my_history[-5:] != 'bbbbb':
-        return 'c'
-    return 'c'
-  
+    if their_history[-2] == 'c':
+        if their_history[-1] == 'b':
+            return 'c'
+            
+    if their_history[-2] == 'b':
+        if their_history[-1] == 'c':
+            return 'c'
+    
+    if their_history[-2] == 'b':
+        if their_history[-1] == 'b':
+            return 'b'
+    
+    
+    
+    
+#     if len(their_history) == 0:
+#         return 'b'
+#     #tit-for-tat
+#     if len(my_history) < 25:
+#         return tit_for_tat(my_history, their_history, my_score, their_score)
+# 
+#     if len(my_history) >=25: #and len(my_history)<=50:
+#         if my_score >= -1000:
+#             return tit_for_tat(my_history, their_history, my_score, their_score)
+#         if my_score < -1000:
+#             return new_strat(my_history, their_history, my_score, their_score)
+#             
+#     #if my_score < -5000:
+#         #while True==True:
+#             #print 'Self Destruct!'
+# 
+# def tit_for_tat(my_history, their_history, my_score, their_score):
+#     if their_history[-1] == 'c':
+#         return 'c'
+#     if their_history[-1] == 'b':
+#         return 'b'
+#  
+# def new_strat(my_history, their_history, my_score, their_score):
+#     if their_history[-1] == 'b':
+#         return 'b'
+#     if my_history[-5:] != 'bbbbb':
+#         return 'c'
+#     return 'c'
+#   
   
 
 
